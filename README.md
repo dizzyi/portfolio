@@ -1,3 +1,3 @@
 # portfolio
 
-(Portfolio Website)[https://dizzyi.github.io/portfolio/]
+[Portfolio Website](https://dizzyi.github.io/portfolio/)
