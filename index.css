@@ -153,7 +153,7 @@ section {
 }
 
 #head {
-    background-image: url("/media/head.jpeg");
+    background-image: url("./media/head.jpeg");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -388,7 +388,7 @@ section {
 #edu_pic {
     width: 15rem;
     height: 10rem;
-    background-image: url("/media/CU.jpg");
+    background-image: url("./media/CU.jpg");
     background-size: cover;
     position: relative;
     left: 1rem;
@@ -478,7 +478,7 @@ section {
 }
 
 #email {
-    background-image: url("/media/copy.svg");
+    background-image: url("./media/copy.svg");
     background-size: contain;
     background-repeat:no-repeat;
     width: 2rem;

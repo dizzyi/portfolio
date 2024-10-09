@@ -133,14 +133,14 @@ pub fn Projects() -> Html {
                     ).collect::<Vec<_>>()
                 }
                 if let Some(b) = proj.2 {
-                    <a href={format!("/media/{}", b.1)}> {b.0} </a>
+                    <a href={format!("./media/{}", b.1)}> {b.0} </a>
                 }
             </div>
             <div class="u_proj_right">
                 {
                     proj.3.iter().map(|i|
                         html!{
-                            <img src={format!("/media/{}", i)} />
+                            <img src={format!("./media/{}", i)} />
                         }
                     ).collect::<Vec<_>>()
                 }
@@ -164,7 +164,7 @@ pub fn Projects() -> Html {
                 <p>
                     {"The project use Arduino Uno as microcontroller, which use CAN bus communication to command the motor controller."}
                 </p>
-                <a href="/media/MAEG2050-Presentation.pdf">
+                <a href="./media/MAEG2050-Presentation.pdf">
                     {"Report"}
                 </a>
                 <canvas id={"robotlegcanvas"}/>
@@ -174,7 +174,7 @@ pub fn Projects() -> Html {
                     (0..4).map(|i|
                         html!{
                             <video loop=true mute={""} autoplay=true>
-                                <source src={format!("/media/MAEG2050-{}.mp4",i+1)}/>
+                                <source src={format!("./media/MAEG2050-{}.mp4",i+1)}/>
                             </video>
                         }
                     ).collect::<Vec<_>>()
@@ -196,7 +196,7 @@ pub fn Projects() -> Html {
                     {"This project mainly apply the knowledge of forward kinematic, inverse kinematic and how to avoid singularity."}
                 </p>
                 <video loop=true mute={""} autoplay=true>
-                    <source src={"/media/MAEG3060.mp4"}/>
+                    <source src={"./media/MAEG3060.mp4"}/>
                 </video>
             </div>
         </article>
