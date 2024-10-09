@@ -103,6 +103,9 @@ fn Contact() -> Html {
 fn App() -> Html {
     html! {
         <>
+            <style>
+                {include_str!("../index.css")}
+            </style>
             <Nav/>
             <Home/>
             <Experience/>
