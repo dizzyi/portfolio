@@ -39,6 +39,15 @@ fn Nav() -> Html {
 
 #[function_component]
 fn Home() -> Html {
+    let interests = ["Robotics"]
+        .iter()
+        .map(|i| {
+            html! {
+                <div class={"interest"}> {i} </div>
+            }
+        })
+        .collect::<Vec<_>>();
+
     html! {
         <section id={"home"}>
             <article>
@@ -55,6 +64,10 @@ fn Home() -> Html {
                 </h5>
                 <div>
                     <a href={"https://github.com/dizzyi/resume/blob/main/resume.pdf"}> {"CV"} </a>
+                </div>
+                <h4> {"Research Interests"} </h4>
+                <div id={"interests"}>
+                    {interests}
                 </div>
             </article>
 

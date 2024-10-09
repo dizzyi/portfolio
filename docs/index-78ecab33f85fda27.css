@@ -181,6 +181,19 @@ section {
 
 
 
+#interests {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+}
+
+.interest {
+    background-color: var(--main-bg-color);
+    border-radius: 2rem;
+    border: solid 2px var(--card-fg-color);
+    color: var(--card-fg-color);
+    padding: 0.5rem 1rem;
+}
 
 
 
