@@ -106,6 +106,9 @@ fn App() -> Html {
             <style>
                 {include_str!("../index.css")}
             </style>
+            <script>
+                {include_str!("../index.js")}
+            </script>
             <Nav/>
             <Home/>
             <Experience/>
