@@ -2,9 +2,13 @@ use yew::prelude::*;
 
 mod education;
 mod experience;
+mod projects;
+mod skills;
 
 use education::*;
 use experience::*;
+use projects::*;
+use skills::*;
 
 #[function_component]
 fn Nav() -> Html {
@@ -37,34 +41,47 @@ fn Nav() -> Html {
 fn Home() -> Html {
     html! {
         <section id={"home"}>
-            {"Home"}
-        </section>
-    }
-}
+            <article>
+                <div id={"head"}/>
+            </article>
 
-#[function_component]
-fn Projects() -> Html {
-    html! {
-        <section id={"projects"}>
-            {"Projects"}
-        </section>
-    }
-}
+            <article>
+                <h1> {"Alan"} </h1>
+                <h5>
+                    {"Highly motivated and driven by a passion for robotics, AI, and automation R&D."}
+                </h5>
+                <h5>
+                    {"Adept at self-learning and quickly mastering new technologies and skills."}
+                </h5>
+                <div>
+                    <a href={"https://github.com/dizzyi/resume/blob/main/resume.pdf"}> {"CV"} </a>
+                </div>
+            </article>
 
-#[function_component]
-fn Skills() -> Html {
-    html! {
-        <section id={"skills"}>
-            {"Skills"}
         </section>
     }
 }
 
 #[function_component]
 fn Contact() -> Html {
+    let clipboard = yew_hooks::use_clipboard();
+
+    let email_cb = Callback::from(move |_e| {
+        clipboard.write_text("deeralan827@gmail.com".to_string());
+    });
+
     html! {
         <section id={"contact"}>
+            <h2>
             {"Contacts"}
+            </h2>
+            <article>
+                <div class={"contact"}>
+                    <a href={"mailto: deeralan827@gmail.com"}> {"deeralan827@gmail"} </a>
+                    <a onclick={email_cb} id={"email"}>
+                    </a>
+                </div>
+            </article>
         </section>
     }
 }
@@ -73,16 +90,13 @@ fn Contact() -> Html {
 fn App() -> Html {
     html! {
         <>
-            <style>
-                {include_str!("../index.css")}
-            </style>
             <Nav/>
-            // <Home/>
-            // <Experience/>
-            // <Projects/>
+            <Home/>
+            <Experience/>
+            <Projects/>
             <Education/>
-            // <Skills/>
-            // <Contact/>
+            <Skills/>
+            <Contact/>
         </>
     }
 }

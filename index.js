@@ -1,17 +1,5 @@
-const cpyemail = ()=>{
-    navigator.clipboard.writeText("deeralan827@gmail.com");
-}
-
 var robotlegcanvas, robotlegcontext, robotlegt = 0, loop = true;
 var mousecommand = [0,0]
-
-function getMousePos(canvas, evt) {
-    var rect = canvas.getBoundingClientRect();
-    return {
-        x: (evt.clientX - rect.left) / (rect.right - rect.left) * canvas.width,
-        y: (evt.clientY - rect.top) / (rect.bottom - rect.top) * canvas.height
-    };
-}
 
 // Commander
 const points = [
@@ -138,14 +126,20 @@ const DrawLine = (a,b)=>{
     robotlegcontext.stroke()
 }
 
-window.onload = ()=>{
-    robotlegcanvas = document.getElementById("robotlegcanvas")
-    robotlegcontext = robotlegcanvas.getContext("2d")
+
+onload = ()=>{
+    robotlegcanvas = document.getElementById("robotlegcanvas");
+    if (robotlegcanvas == null) {
+        console.log("timeout . . .");
+        setTimeout(()=>{onload();}, 1000);
+        return;
+    }
+
+    robotlegcontext = robotlegcanvas.getContext("2d");
     
     robotlegcontext.fillStyle = "#FF0000";
 
     setInterval(()=>{
-        
         //if(!loop) return
         robotlegcontext.clearRect(0,0,500,500)
         let p = Commander();
@@ -156,14 +150,14 @@ window.onload = ()=>{
         ik.forEach(p => {
             DrawPoint(p)
         });
-    },10)
+    }, 10)
 
     robotlegcanvas.addEventListener("mouseenter", (event)=>{loop = false})
     robotlegcanvas.addEventListener("mouseleave", (event)=>{loop = true})
     robotlegcanvas.addEventListener("mousemove", (evt)=>{
         var rect = robotlegcanvas.getBoundingClientRect();
 
-        let x = (evt.clientX - rect.top) / (rect.bottom - rect.top) * robotlegcanvas.height
+        let x = (evt.clientX - rect.left) / (rect.right - rect.left) * robotlegcanvas.width
         let y = (evt.clientY - rect.top) / (rect.bottom - rect.top) * robotlegcanvas.height
         
         mousecommand = [(x - offset[0])/scale[0],(y - offset[1])/scale[1]]
@@ -171,3 +165,5 @@ window.onload = ()=>{
         robotlegcontext.fillRect(x, y, 3, 3);
     })
 }
+
+onload();
