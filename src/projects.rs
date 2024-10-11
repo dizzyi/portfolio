@@ -173,7 +173,7 @@ pub fn Projects() -> Html {
                 {
                     (0..4).map(|i|
                         html!{
-                            <video loop=true muted=true autoplay=true>
+                            <video class="vid" loop=true muted=true autoplay=true>
                                 <source src={format!("./media/MAEG2050-{}.mp4",i+1)}/>
                             </video>
                         }
@@ -195,7 +195,7 @@ pub fn Projects() -> Html {
                 <p>
                     {"This project mainly apply the knowledge of forward kinematic, inverse kinematic and how to avoid singularity."}
                 </p>
-                <video loop=true muted=true autoplay=true>
+                <video class="vid" loop=true muted=true autoplay=true>
                     <source src={"./media/MAEG3060.mp4"}/>
                 </video>
             </div>

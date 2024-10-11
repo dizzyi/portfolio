@@ -101,6 +101,22 @@ fn Contact() -> Html {
 
 #[function_component]
 fn App() -> Html {
+    
+    use_effect(move || {
+        use web_sys::wasm_bindgen::JsCast;
+
+        let c = web_sys::window().unwrap().document().unwrap().get_elements_by_class_name("vid");
+    
+        for i in 0..c.length(){
+
+            let e = c.item(i).unwrap();
+
+            let vid = e.dyn_into::<web_sys::HtmlVideoElement>().unwrap();
+
+            vid.set_volume(0.0);
+        }
+    });
+
     html! {
         <>
             <style>
